@@ -99,3 +99,62 @@ string texto1 = "Hola";
 string texto2 = "Mundo";
 int resultado = texto1.compare(texto2); // Comparación lexicográfica
 ```
+
+## Alcances de la Libreria < vector >
+
+La clase `vector` es parte de la biblioteca estándar de `C++` (STL - Standard Template Library). Un `vector` es un arreglo dinámico que puede cambiar de tamaño automáticamente cuando se agregan o eliminan elementos. A diferencia de los arreglos estáticos, los vector pueden crecer o reducirse según sea necesario.
+
+### Casos más frecuentes de uso
+
+1. Cuando se necesita un arreglo dinámico: Cuando el tamaño de los datos no es conocido de antemano o cambia frecuentemente.
+2. Al trabajar con listas o colecciones: Cuando se necesita una lista que puede crecer o reducirse fácilmente.
+3. Compatibilidad con STL: Cuando necesitamos aprovechar funciones de la STL, como `sort`, `find`, `count`, entre otros.
+
+
+### Principales métodos y funcionalidades
+
+#### 1. push_back(elemento):
+- Añade un elemento al final del `vector`.
+
+```cpp
+vector<int> numeros;
+numeros.push_back(5); // Añade el 5 al final del vector
+```
+
+#### 2. pop_back():
+- Elimina el último elemento del `vector`.
+
+```cpp
+numeros.pop_back(); // Elimina el último elemento del vector
+```
+
+#### 3.size():
+- Devuelve el número de elementos en el `vector`
+
+```cpp
+int tamano = numeros.size(); // Devuelve el tamaño del vector
+```
+
+#### 4. empty():
+- Devuelve `true` si el `vector` está vacío, `false` en caso contrario.
+
+```cpp
+if (numeros.empty()) {
+    cout << "El vector está vacío";
+}
+```
+
+#### 5. clear():
+- Elimina todos los elementos del `vector`, dejándolo vacío.
+
+```cpp
+numeros.clear(); // Elimina todos los elementos
+```
+
+#### front() y back():
+- Devuelven una referencia al primer (`front()`) o último (`back()`) elemento del `vector`.
+
+```cpp
+int primero = numeros.front(); // Primer elemento
+int ultimo = numeros.back(); // Último elemento
+```
