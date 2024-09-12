@@ -19,10 +19,10 @@ Print `YES`, if the boys can divide the watermelon into two parts, each of them 
 ### Examples
 
 **Input**
-8
+`8`
 
 **Output**
-YES
+`YES`
 
 ### Note
 For example, the boys can divide the watermelon into two parts of 2 and 6 kilos  respectively (another variant — two parts of 4 and 4 kilos).
@@ -106,17 +106,17 @@ Print `n` lines. The i-th line should contain the result of replacing of the i-t
 ### Examples
 
 **Input**
-4
-word
-localization
-internationalization
-pneumonoultramicroscopicsilicovolcanoconiosis
+`4`
+`word`
+`localization`
+`internationalization`
+`pneumonoultramicroscopicsilicovolcanoconiosis`
 
 **Output**
-word
-l10n
-i18n
-p43s
+`word`
+`l10n`
+`i18n`
+`p43s`
 
 ## Solución
 
@@ -204,21 +204,21 @@ Print a single integer — the number of problems the friends will implement on 
 ### Examples
 
 **Input**
-3
-1 1 0
-1 1 1
-1 0 0
+`3`
+`1 1 0`
+`1 1 1`
+`1 0 0`
 
 **Output**
-2
+`2`
 
 **Input**
-2
-1 0 0
-0 1 1
+`2`
+`1 0 0`
+`0 1 1`
 
 **Output**
-1
+`1`
 
 ### Note
 In the first sample Petya and Vasya are sure that they know how to solve the first problem and all three of them know how to solve the second problem. That means that they will write solutions for these problems. Only Petya is sure about the solution for the third problem, but that isn't enough, so the friends won't take it.
@@ -278,19 +278,136 @@ int main(){
 }
 ```
 
+## D. Bit ++
 
+- **Time limit per test:** 1 second  
+- **Memory limit per test:** 256 megabytes
 
+The classic programming language of Bitland is Bit++. This language is so peculiar and complicated.
 
+The language is that peculiar as it has exactly one variable, called `x`. Also, there are two operations:
 
+- Operation `++` increases the value of variable `x` by `1`.
+- Operation `--` decreases the value of variable `x` by `1`.
 
+A statement in language Bit++ is a sequence, consisting of exactly one operation and one variable `x`. The statement is written without spaces, that is, it can only contain characters `+`, `-`, `X`. Executing a statement means applying the operation it contains.
 
+A programme in Bit++ is a sequence of statements, each of them needs to be executed. Executing a programme means executing all the statements it contains.
 
+You're given a programme in language Bit++. The initial value of `x` is `0`. Execute the programme and find its final value (the value of the variable when this programme is executed).
 
+### Input
 
+The first line contains a single integer `n` `(1 ≤ n ≤ 150)` — the number of statements in the programme.
 
+Next `n` lines contain a statement each. Each statement contains exactly one operation (`++` or `--`) and exactly one variable `x` (denoted as letter `«X»`). Thus, there are no empty statements. The operation and the variable can be written in any order.
 
+### Output
 
+Print a single integer — the final value of `x`.
 
+### Examples
+
+**Input**
+`1`
+`++x`
+
+**Output**
+`1`
+
+**Input**
+`2`
+`x++`
+`--x`
+
+**Output**
+`0`
+
+## Solución
+
+#### Explicación del problema:
+
+Dentro de las operaciones permitidas tenemos:
+- `++x` o `x++`: Incrementa `x` en `1`
+- `--x` o `x--`: Decrementa `x` en `1`
+
+El programa ejecuta todas las instrucciones en secuencia. Dependiendo de la operación, el valor de `x` se incrementará o decrementará.
+
+#### Ejemplos para entender el problema:
+
+- **Ejemplo 1:**
+  * Solo hay una instrucción `++x`. Esta incrementa `x` en `1`.
+  * Valor final de `x` es `1`.
+</br>
+- **Ejemplo 2:**
+  * Primera instrucción: `x++` (incrementa `x` en `1`, `x = 1`).
+  * Segunda instrucción: `--x` (decrementa `x` en `1`, `x = 0`).
+  * Valor final de `x` es `0`.
+
+#### Código C++
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    int n; // Número de instrucciones
+    cin >> n;
+
+    int x = 0; // Valor inicial de x es 0
+
+    for (int i = 0; i < n; i++){
+        string instruction;
+        cin >> instruction; // Leer cada instrucción
+
+        //Comprobar si la instrucción contiene "++"
+        if (instruction.find("++") != string::npos){
+            x++; // Incrementar x en 1
+        }
+        // Comprobar si la instrucción contiene "--"
+        if (instruction.find("--") != string::npos){
+            x--; // Disminuir x en 1
+    }
+
+    cout << x << endl; // Imprimir el valor final de x
+    
+    return 0;
+}
+```
+
+En este código, el método `instruction.find("++")` busca la subcadena `++` dentro de la cadena instruction. Si encuentra la subcadena, devuelve la posición (índice) donde se encuentra la primera aparición de `++`. Si no la encuentra, devuelve `string::npos`, que es un valor especial utilizado para indicar que la subcadena no se encontró. 
+
+Y, `!= string::npos` verifica que el resultado de `find` no sea `string::npos`. Si find no devuelve `string::npos`, significa que `++` está presente en la cadena `instruction`.
+
+Otra forma de colocarlo sería:
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int n; // Número de instrucciones
+    cin >> n;
+    
+    int x = 0; // Valor inicial de x es 0
+    
+    for (int i = 0; i < n; i++) {
+        string instruction;
+        cin >> instruction; // Leer cada instrucción
+        
+        // Comparando directamente las instrucciones con "++x" o "x++"
+        if (instruction == "++x" || instruction == "x++") {
+            x++; // Incrementar x en 1
+        } else if (instruction == "--x" || instruction == "x--") {
+            x--; // Disminuir x en 1
+        }
+    }
+    
+    cout << x << endl; // Imprimir el valor final de x
+    return 0;
+}
+```
 
 
 
