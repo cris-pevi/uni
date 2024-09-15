@@ -79,3 +79,110 @@ int main() {
     return 0;
 }
 ```
+
+## B. In Search of an Easy Problem
+
+- **Time limit per test:** 1 second  
+- **Memory limit per test:** 256 megabytes
+
+When preparing a tournament, Codeforces coordinators try their best to make the first problem as easy as possible. This time the coordinator had chosen some problem and asked `n` people about their opinions. Each person answered whether this problem is easy or hard.
+
+If at least one of these `n` people has answered that the problem is hard, the coordinator decides to change the problem. For the given responses, check if the problem is easy enough.
+
+### Input
+
+The first line contains a single integer `n` `(1 ≤ n ≤ 100)` — the number of people who were asked to give their opinions.
+
+The second line contains `n` integers, each integer is either `0` or `1`. If `i-th` integer is `0`, then `i-th` person thinks that the problem is easy; if it is `1`, then `i-th` person thinks that the problem is hard.
+
+### Output
+
+Print one word: "EASY" if the problem is easy according to all responses, or "HARD" if there is at least one person who thinks the problem is hard.
+
+You may print every letter in any register: "EASY", "easy", "EaSY" and "eAsY" all will be processed correctly.
+
+### Examples
+
+**Input:**
+
+`3`
+
+`0 0 1`
+
+**Output:**
+
+`HARD`
+
+**Input:**
+
+`1`
+
+`0`
+
+**Output:**
+
+`EASY`
+
+### Note
+In the first example the third person says it's a hard problem, so it should be replaced.
+
+In the second example the problem is easy for the only person, so it doesn't have to be replaced.
+
+## Solución
+
+#### Explicación del problema:
+
+El coordinador de Codeforces ha elegido un problema y preguntó a `n` personas si creen que es fácil o difícil. Si al menos una persona piensa que el problema es difícil (es decir, responde con `1`), se debe cambiar el problema. Si todos piensan que es fácil (responden con `0`), el problema es lo suficientemente fácil.
+
+#### Condiciones importantes:
+
+1. Si alguna de las respuestas es `1`, el problema se considera "HARD".
+2. Si todas las respuestas son `0`, el problema se considera "EASY".
+
+#### Ejemplos para entender el problema:
+
+- **Ejemplo 1:**
+  Si `n = 3` y las respuestas son `0 0 1`:
+
+  Una persona cree que el problema es difícil, por lo tanto, la respuesta es "HARD".
+  
+<br>
+
+- **Ejemplo 2:**
+  Si `n = 1` y la respuesta es `0`:
+
+  La única persona piensa que el problema es fácil, por lo tanto, la respuesta es "EASY".
+
+#### Solución del problema en C++
+
+Para resolver este problema, recorremos la lista de respuestas. Si encontramos al menos un `1`, imprimimos "HARD". Si no encontramos ningún `1`, imprimimos "EASY".
+
+#### Código C++
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n; // Leemos el número de personas
+
+    bool isHard = false; // Bandera para indicar si el problema es difícil
+    for (int i = 0; i < n; ++i) {
+        int opinion;
+        cin >> opinion; // Leemos la opinión de cada persona
+        if (opinion == 1) { // Si alguien piensa que es difícil
+            isHard = true;
+            break; // Terminamos el ciclo ya que basta con una persona
+        }
+    }
+
+    if (isHard) {
+        cout << "HARD" << endl; // Imprimimos "HARD" si el problema es difícil
+    } else {
+        cout << "EASY" << endl; // Imprimimos "EASY" si el problema es fácil
+    }
+
+    return 0;
+}
+```
+
