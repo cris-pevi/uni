@@ -186,3 +186,120 @@ int main() {
 }
 ```
 
+## C. Beautiful Matrix
+
+- **Time limit per test:** 2 seconds  
+- **Memory limit per test:** 256 megabytes
+
+You've got a 5 × 5 matrix, consisting of 24 zeroes and a single number one. Let's index the matrix rows by numbers from 1 to 5 from top to bottom, let's index the matrix columns by numbers from 1 to 5 from left to right. In one move, you are allowed to apply one of the two following transformations to the matrix:
+
+1. Swap two neighboring matrix rows, that is, rows with indexes `i` and `i + 1` for some integer `i` `(1 ≤ i < 5)`.
+2. Swap two neighboring matrix columns, that is, columns with indexes `j` and `j + 1` for some integer `j` `(1 ≤ j < 5)`.
+
+You think that a matrix looks **beautiful**, if the single number one of the matrix is located in its middle (in the cell that is on the intersection of the third row and the third column). Count the minimum number of moves needed to make the matrix beautiful.
+
+### Input
+
+The input consists of five lines, each line contains five integers: the `j-th` integer in the `i-th` line of the input represents the element of the matrix that is located on the intersection of the `i-th` row and the `j-th` column. It is guaranteed that the matrix consists of 24 zeroes and a single number one.
+
+### Output
+
+Print a single integer — the minimum number of moves needed to make the matrix beautiful.
+
+### Examples
+
+**Input:**
+
+`0 0 0 0 0`
+
+`0 0 0 0 1`
+
+`0 0 0 0 0`
+
+`0 0 0 0 0`
+
+`0 0 0 0 0`
+
+**Output:**
+
+`3`
+
+<br>
+
+**Input:**
+
+`0 0 0 0 0`
+
+`0 0 0 0 0`
+
+`0 1 0 0 0`
+
+`0 0 0 0 0`
+
+`0 0 0 0 0`
+
+**Output:**
+
+`1`
+
+### Note
+In the first example, the "1" is already at the center of the matrix, so the number of moves required is `3`.
+
+In the second example, the "1" is one step away from the center, so only `1` move is needed to make the matrix beautiful.
+
+## Solución
+
+#### Explicación del problema:
+
+Tenemos una matriz de `5 x 5` con solo un `1` y el resto son `0`. Queremos mover el `1` a la posición central de la matriz (fila `3`, columna `3`) utilizando el mínimo número de movimientos. Cada movimiento permite intercambiar dos filas o dos columnas adyacentes.
+
+#### Estrategia de solución:
+
+1. Encontrar la posición del `1` en la matriz.
+
+2. Calcular la distancia entre la posición actual del `1` y la posición central `(3, 3)`.
+
+3. Imprimir la distancia como el número mínimo de movimientos necesarios.
+
+#### Ejemplos para entender el problema:
+
+- **Ejemplo 1:**
+
+  El `1` se encuentra en la fila `3` y columna `3`, ya está en el centro, por lo tanto, el número de movimientos es `0`.
+
+- **Ejemplo 2:**
+
+  El `1` se encuentra en la fila `4` y columna `4`. Para llegar al centro `(3, 3)`, se necesita `1` movimiento hacia arriba y `1` movimiento hacia la izquierda, para un total de `2` movimientos.
+
+#### Solución del problema en C++
+
+Para resolver este problema, leemos la matriz y localizamos la posición del `1`. Luego, calculamos la distancia desde esa posición hasta el centro `(3, 3)`.
+
+#### Código C++
+```cpp
+#include <iostream>
+#include <cmath> // Para usar abs()
+using namespace std;
+
+int main() {
+    int matrix[5][5];
+    int x, y; // Coordenadas del "1" en la matriz
+
+    // Leemos la matriz y encontramos la posición del "1"
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            cin >> matrix[i][j];
+            if (matrix[i][j] == 1) {
+                x = i; // Guardamos la fila donde se encuentra el "1"
+                y = j; // Guardamos la columna donde se encuentra el "1"
+            }
+        }
+    }
+
+    // Calculamos la distancia hasta el centro (2, 2) en base a índices de 0
+    int moves = abs(x - 2) + abs(y - 2);
+    cout << moves << endl; // Imprimimos el número mínimo de movimientos
+
+    return 0;
+}
+```
