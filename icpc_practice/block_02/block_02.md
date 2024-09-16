@@ -303,3 +303,181 @@ int main() {
     return 0;
 }
 ```
+
+## D. Next Round
+
+- **Time limit per test:** 3 seconds  
+- **Memory limit per test:** 256 megabytes
+
+"Contestant who earns a score equal to or greater than the `k-th` place finisher's score will advance to the next round, as long as the contestant earns a positive score..." — an excerpt from contest rules.
+
+A total of `n` participants took part in the contest (`n ≥ k`), and you already know their scores. Calculate how many participants will advance to the next round.
+
+### Input
+
+The first line of the input contains two integers `n` and `k` `(1 ≤ k ≤ n ≤ 50)` separated by a single space.
+
+The second line contains `n` space-separated integers `a1, a2, ..., an` `(0 ≤ ai ≤ 100)`, where `ai` is the score earned by the participant who got the `i-th` place. The given sequence is non-increasing (that is, for all `i` from `1` to `n - 1` the following condition is fulfilled: `ai ≥ ai+1`).
+
+### Output
+
+Output the number of participants who advance to the next round.
+
+### Examples
+
+**Input:**
+`8` `5`
+
+`10` `9` `8` `7` `7` `7` `5` `5`
+
+**Output:**
+`6`
+<br>
+
+**Input:**
+`4` `2`
+
+`0` `0` `0` `0`
+
+**Output:**
+`0`
+
+### Note
+In the first example the participant on the 5th place earned 7 points. As the participant on the 6th place also earned 7 points, there are 6 advancers.
+
+In the second example nobody got a positive score.
+
+## Solución
+
+#### Explicación del problema:
+
+En este problema, los participantes avanzan a la siguiente ronda si su puntaje es mayor o igual al puntaje del participante en la posición `k` y su puntaje es mayor que `0`. Dado que los puntajes están ordenados de forma no creciente, necesitamos contar cuántos participantes cumplen con estas condiciones.
+
+#### Estrategia de solución:
+
+1. Leer los valores de `n` y `k`.
+2. Leer el arreglo de puntajes `a`.
+3. Determinar el puntaje en la posición `k` (ajustando el índice a base `0`).
+4. Contar cuántos puntajes son mayores o iguales a este puntaje y mayores que `0`.
+
+#### Ejemplos para entender el problema:
+
+- **Ejemplo 1:**
+  - `n = 8`, `k = 5`
+  - Puntajes: `10, 9, 8, 7, 7, 7, 5, 5`
+  - El puntaje en la posición `k = 5` es `7`.
+  - Hay `6` participantes con puntajes mayores o iguales a `7` y mayores que `0`.
+
+<br>
+
+- **Ejemplo 2:**
+  - `n = 4`, `k = 2`
+  - Puntajes: `0, 0, 0, 0`
+  - No hay participantes con puntajes mayores que `0`.
+
+#### Solución del problema en C++
+
+Para resolver este problema, leemos los datos, determinamos el puntaje en la posición `k`, y contamos cuántos participantes tienen puntajes mayores o iguales a este y mayores que `0`.
+
+
+
+#### Código C++
+
+- Utilizando la biblioteca *< vector >*
+
+```cpp
+#include <iostream>
+#include <vector> // Incluimos la biblioteca vector
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k; // Leemos el número de participantes y la posición k
+
+    vector<int> scores(n); // Creamos un vector para almacenar los puntajes
+    for (int i = 0; i < n; i++) {
+        cin >> scores[i]; // Leemos los puntajes de los participantes
+    }
+
+    int score_to_advance = scores[k - 1]; // Puntaje del k-ésimo participante
+    int count = 0;
+
+    // Contamos cuántos participantes avanzan a la siguiente ronda
+    for (int i = 0; i < n; ++i) {
+        if (scores[i] >= score_to_advance && scores[i] > 0) {
+            count++;
+        }
+    }
+
+    cout << count << endl; // Imprimimos el número de participantes que avanzan
+
+    return 0;
+}
+```
+
+- Sin utilizar la biblioteca *< vector >*
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k; // Leemos el número de participantes y la posición k
+
+    // Usamos memoria dinámica para crear un array de tamaño n
+    int* scores = new int[n]; 
+
+    for (int i = 0; i < n; ++i) {
+        cin >> scores[i]; // Leemos los puntajes de los participantes
+    }
+
+    int score_to_advance = scores[k - 1]; // Puntaje del k-ésimo participante
+    int count = 0;
+
+    // Contamos cuántos participantes avanzan a la siguiente ronda
+    for (int i = 0; i < n; ++i) {
+        if (scores[i] >= score_to_advance && scores[i] > 0) {
+            count++;
+        }
+    }
+
+    cout << count << endl; // Imprimimos el número de participantes que avanzan
+
+    // Liberamos la memoria asignada dinámicamente
+    delete[] scores; 
+
+    return 0;
+}
+```
+
+- Utilizando memoria estática
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k; // Leemos el número de participantes y la posición k
+
+    int scores[50]; // Usamos memoria estática para un array de tamaño máximo 50
+
+    for (int i = 0; i < n; ++i) {
+        cin >> scores[i]; // Leemos los puntajes de los participantes
+    }
+
+    int score_to_advance = scores[k - 1]; // Puntaje del k-ésimo participante
+    int count = 0;
+
+    // Contamos cuántos participantes avanzan a la siguiente ronda
+    for (int i = 0; i < n; ++i) {
+        if (scores[i] >= score_to_advance && scores[i] > 0) {
+            count++;
+        }
+    }
+
+    cout << count << endl; // Imprimimos el número de participantes que avanzan
+
+    return 0;
+}
+```
