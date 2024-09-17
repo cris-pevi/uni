@@ -178,5 +178,88 @@ F(x) = -\frac{1}{2}e^{-2x} + x^3 + \frac{1}{2}
 
 La antiderivada de \( f(x) = e^{-2x} + 3x^2 \) es \( F(x) = -\frac{1}{2}e^{-2x} + x^3 + \frac{1}{2} \).
 
+\section*{Problema 03.}
+
+\subsection*{Determine las integrales indefinidas de las siguientes funciones:}
+
+\subsection*{\newline a. \(f(x) = \frac{1}{(x+2)\sqrt{x}}\)}
+\subsection*{Solución: }
+
+Para resolver esta integral, utilizamos la sustitución \( u = \sqrt{x} \), de modo que \( x = u^2 \) y \( dx = 2u \, du \).
+
+La integral se convierte en:
+\[
+\int \frac{1}{(u^2 + 2)u} \cdot 2u \, du = 2 \int \frac{1}{u^2 + 2} \, du
+\]
+
+Usando la fórmula para la integral de \( \frac{1}{u^2 + a^2} \), donde \( a = \sqrt{2} \):
+\[
+2 \int \frac{1}{u^2 + (\sqrt{2})^2} \, du = 2 \cdot \frac{1}{\sqrt{2}} \arctan\left( \frac{u}{\sqrt{2}} \right) + C
+\]
+
+Sustituyendo \( u = \sqrt{x} \), obtenemos:
+\[
+F(x) = \sqrt{2} \arctan\left( \frac{\sqrt{x}}{\sqrt{2}} \right) + C
+\]
+
+\subsection*{Conclusión:}
+
+La integral indefinida de \( f(x) = \frac{1}{(x+2)\sqrt{x}} \) es:
+\[
+F(x) = \sqrt{2} \arctan\left( \frac{\sqrt{x}}{\sqrt{2}} \right) + C
+\]
+
+\subsection*{\newline b. \(f(x) = \frac{x}{\sqrt{x+3} + 4}\)}
+\subsection*{Solución: }
+
+Para resolver esta integral, usamos la sustitución \( u = \sqrt{x+3} \), de modo que \( x = u^2 - 3 \) y \( dx = 2u \, du \).
+
+\noindent \newline Reescribimos la integral en términos de \( u \):
+
+\[
+\int \frac{u^2 - 3}{u + 4} \cdot 2u \, du = 2 \int \frac{u(u^2 - 3)}{u + 4} \, du = 2 \int \frac{u^3 - 3u}{u + 4} \, du
+\]
+
+\noindent Dividimos el numerador por el denominador:
+
+\[
+= 2 \int \left( u^2 - 4u + \frac{16}{u+4} \right) \, du
+\]
+
+\noindent Ahora integramos término a término:
+
+\[
+\int u^2 \, du = \frac{u^3}{3}
+\]
+
+\[
+\int -4u \, du = -2u^2\
+\]
+
+\[
+\int \frac{16}{u+4} \, du = 16 \ln|u+4|
+\]
+
+\noindent Por lo tanto:
+\[
+F(u) = \frac{2}{3}u^3 - 4u^2 + 32 \ln|u+4| + C
+\]
+
+\noindent Sustituyendo \( u = \sqrt{x+3} \):
+\[
+F(x) = \frac{2}{3}(\sqrt{x+3})^3 - 4(x+3) + 32 \ln|\sqrt{x+3} + 4| + C
+\]
+
+\noindent Simplificando:
+\[
+F(x) = \frac{2}{3}(x+3)^{3/2} - 4(x+3) + 32 \ln|\sqrt{x+3} + 4| + C
+\]
+
+\subsection*{Conclusión:}
+
+La integral indefinida de \( f(x) = \frac{x}{\sqrt{x+3} + 4} \) es:
+\[
+F(x) = \frac{2}{3}(x+3)^{3/2} - 4(x+3) + 32 \ln|\sqrt{x+3} + 4| + C
+\]
 
 \end{document}
