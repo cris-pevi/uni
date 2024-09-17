@@ -262,4 +262,85 @@ La integral indefinida de \( f(x) = \frac{x}{\sqrt{x+3} + 4} \) es:
 F(x) = \frac{2}{3}(x+3)^{3/2} - 4(x+3) + 32 \ln|\sqrt{x+3} + 4| + C
 \]
 
+\subsection*{\newline c. \(f(x) = \frac{x^3}{\sqrt{1+x^2} + 1}\)}
+\subsection*{Solución: }
+
+Para resolver esta integral, utilizamos la sustitución \( u = \sqrt{1+x^2} \), de modo que:
+\[
+x = \sqrt{u^2 - 1},  dx = \frac{u \, du}{\sqrt{u^2 - 1}}
+\]
+
+\noindent \newline Reescribimos la integral en términos de \( u \):
+\[
+\int \frac{(\sqrt{u^2 - 1})^3}{u + 1} \cdot \frac{u \, du}{\sqrt{u^2 - 1}} = \int \frac{u^4 - 2u^2 + 1}{(u + 1)^2} \, du
+\]
+
+\noindent Simplificamos dividiendo:
+\[
+\int \left( u^2 - 2 + \frac{3}{u+1} \right) \, du
+\]
+
+\noindent Ahora integramos término a término:
+\[
+\int u^2 \, du = \frac{u^3}{3}
+\]
+
+\[
+\int -2 \, du = -2u
+\]
+
+\[
+\int \frac{3}{u+1} \, du = 3 \ln|u+1|
+\]
+
+\noindent Por lo tanto:
+
+\[
+F(u) = \frac{u^3}{3} - 2u + 3 \ln|u+1| + C
+\]
+
+\noindent \newline Sustituyendo \( u = \sqrt{1+x^2} \):
+
+\[
+F(x) = \frac{(1+x^2)^{3/2}}{3} - 2\sqrt{1+x^2} + 3 \ln|\sqrt{1+x^2} + 1| + C
+\]
+
+\subsection*{Conclusión:}
+
+La integral indefinida de \( f(x) = \frac{x^3}{\sqrt{1+x^2} + 1} \) es:
+\[
+F(x) = \frac{(1+x^2)^{3/2}}{3} - 2\sqrt{1+x^2} + 3 \ln|\sqrt{1+x^2} + 1| + C
+\]
+
+\subsection*{\newline d. \(f(x) = e^x \left( \frac{1}{x} - \frac{1}{x^2} \right)\)}
+\subsection*{Solución: }
+
+Distribuimos y reescribimos la integral:
+
+\[
+\int e^x \left( \frac{1}{x} - \frac{1}{x^2} \right) \, dx = \int \frac{e^x}{x} \, dx - \int \frac{e^x}{x^2} \, dx
+\]
+
+\noindent \newline Para la segunda integral, utilizamos integración por partes. Definimos: \( u = \frac{1}{x} \), \( dv = e^x \, dx \), entonces \( du = -\frac{1}{x^2} \, dx \), \( v = e^x \).
+
+\noindent \newline Aplicando la integración por partes:
+
+\[
+\int \frac{e^x}{x^2} \, dx = \frac{e^x}{x} + \int \frac{e^x}{x} \, dx
+\]
+
+\noindent Por lo tanto, la integral total es:
+
+\[
+F(x) = \frac{e^x}{x} + \text{Ei}(x) + C
+\]
+
+\subsection*{Conclusión:}
+
+La integral indefinida de \( f(x) = e^x \left( \frac{1}{x} - \frac{1}{x^2} \right) \) es:
+\[
+F(x) = \frac{e^x}{x} + \text{Ei}(x) + C
+\]
+
+
 \end{document}
