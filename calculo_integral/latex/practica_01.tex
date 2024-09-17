@@ -1,27 +1,42 @@
 \documentclass{article}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 
-\title{Práctica 01 de Matemáticas}
-\author{Cristhyan}
-\date{Septiembre 2024}
-
 \begin{document}
+\large % Cambia el tamaño del texto a "large"
 
-\maketitle
+\section*{Problema 01.}
 
-\section{Ejemplo de Ecuaciones}
-Resolver la siguiente ecuación cuadrática:
+\subsection*{Sea \(f(x)\) una antiderivada de \(v(x)\). Determine el valor de verdad de las siguientes proposiciones.}
 
+\subsection*{\newline a) \(3f(x)\) es una antiderivada de \(3v(x)\)}
+\subsection*{Solución: } 
+
+Dado que \(f(x)\) es una antiderivada de \(v(x)\), es decir:
 \[
-ax^2 + bx + c = 0
+f'(x) = v(x),
 \]
 
-\section{Solución}
-Usando la fórmula general:
+\noindent Debemos verificar si \(3f(x)\) es una antiderivada de \(3v(x)\).
 
+\noindent \newline Consideremos la función \(F(x) = 3f(x)\) y calculemos su derivada:
 \[
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+F'(x) = \frac{d}{dx}[3f(x)]
 \]
+
+\noindent \newline Usando la regla de la constante multiplicada por una función, tenemos:
+\[
+F'(x) = 3f'(x)
+\]
+
+\noindent Dado que \(f'(x) = v(x)\), podemos sustituir:
+\[
+F'(x) = 3v(x)
+\]
+
+\noindent Por lo tanto, la derivada de \(3f(x)\) es \(3v(x)\), lo que demuestra que \(3f(x)\) es efectivamente una antiderivada de \(3v(x)\).
+
+\subsection*{Conclusión:}
+
+La proposición \textbf{(a)} es \textbf{verdadera}.
 
 \end{document}
