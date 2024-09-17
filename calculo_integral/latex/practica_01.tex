@@ -8,7 +8,7 @@
 
 \subsection*{Sea \(f(x)\) una antiderivada de \(v(x)\). Determine el valor de verdad de las siguientes proposiciones.}
 
-\subsection*{\newline a) \(3f(x)\) es una antiderivada de \(3v(x)\)}
+\subsection*{\newline a. \(3f(x)\) es una antiderivada de \(3v(x)\)}
 \subsection*{Solución: } 
 
 Dado que \(f(x)\) es una antiderivada de \(v(x)\), es decir:
@@ -38,5 +38,145 @@ F'(x) = 3v(x)
 \subsection*{Conclusión:}
 
 La proposición \textbf{(a)} es \textbf{verdadera}.
+
+
+\subsection*{\newline b. \(2f(2x)\) es una antiderivada de \(v(2x)\)}
+\subsection*{Solución: } 
+
+Dado que \(f(x)\) es una antiderivada de \(v(x)\), es decir:
+\[
+f'(x) = v(x),
+\]
+
+\noindent Consideremos la función \(G(x) = 2f(2x)\) y calculemos su derivada:
+\[
+G'(x) = \frac{d}{dx}[2f(2x)]
+\]
+
+\noindent Usando la regla de la cadena, tenemos:
+\[
+G'(x) = 2 \cdot f'(2x) \cdot 2 = 4f'(2x)
+\]
+
+\noindent Dado que \(f'(2x) = v(2x)\), podemos sustituir:
+\[
+G'(x) = 4v(2x)
+\]
+
+\noindent Por lo tanto, la derivada de \(2f(2x)\) es \(4v(2x)\), no \(v(2x)\).
+
+\subsection*{Conclusión:}
+
+La proposición \textbf{(b)} es \textbf{falsa}.
+
+\subsection*{\newline c. \(f(x + 3)\) es una antiderivada de \(v(x + 3)\)}
+\subsection*{Solución: } 
+
+Dado que \(f(x)\) es una antiderivada de \(v(x)\), es decir:
+\[
+f'(x) = v(x),
+\]
+
+\noindent Consideremos la función \(H(x) = f(x + 3)\) y calculemos su derivada:
+\[
+H'(x) = \frac{d}{dx}[f(x + 3)]
+\]
+
+\noindent Usando la regla de la cadena, tenemos:
+\[
+H'(x) = f'(x + 3)
+\]
+
+\noindent Dado que \(f'(x + 3) = v(x + 3)\), podemos concluir:
+\[
+H'(x) = v(x + 3)
+\]
+
+\noindent Por lo tanto, la derivada de \(f(x + 3)\) es \(v(x + 3)\), lo que demuestra que \(f(x + 3)\) es efectivamente una antiderivada de \(v(x + 3)\)
+
+\subsection*{Conclusión:}
+
+La proposición \textbf{(c)} es \textbf{verdadera}.
+
+\section*{Problema 02.}
+
+\subsection*{Determine la antiderivada \( F \) de la función \( f \), suponiendo que \( F(0) = 0 \).}
+
+\subsection*{\newline a. \(f(x) = 4x - \sqrt{x}\)}
+\subsection*{Solución: }
+
+La antiderivada de \( f(x) \) es:
+\[
+F(x) = \int (4x - \sqrt{x}) \, dx
+\]
+
+\noindent Calculamos cada término por separado:
+\[
+\int 4x \, dx = 2x^2, \quad \int x^{1/2} \, dx = \frac{2}{3}x^{3/2}
+\]
+
+\noindent Combinando ambos términos:
+\[
+F(x) = 2x^2 - \frac{2}{3}x^{3/2} + C
+\]
+
+\noindent Usando la condición inicial \( F(0) = 0 \):
+\[
+C = 0
+\]
+
+\noindent La antiderivada es:
+\[
+F(x) = 2x^2 - \frac{2}{3}x^{3/2}
+\]
+
+\subsection*{Conclusión:}
+
+La antiderivada de \( f(x) = 4x - \sqrt{x} \) es \( F(x) = 2x^2 - \frac{2}{3}x^{3/2} \)
+
+\subsection*{\newline b. \(f(x) = \frac{1}{(x+1)^2}\)}
+\subsection*{Solución: }
+
+La antiderivada de \( f(x) \) es:
+\[
+F(x) = \int \frac{1}{(x+1)^2} \, dx = -\frac{1}{x+1} + C
+\]
+
+\noindent Usando la condición inicial \( F(0) = 0 \):
+\[
+C = 1
+\]
+
+\noindent La antiderivada es:
+\[
+F(x) = -\frac{1}{x+1} + 1
+\]
+
+\subsection*{Conclusión:}
+
+La antiderivada de \( f(x) = \frac{1}{(x+1)^2} \) es \( F(x) = -\frac{1}{x+1} + 1 \)
+
+\subsection*{\newline c. \(f(x) = e^{-2x} + 3x^2\)}
+\subsection*{Solución: }
+
+La antiderivada de \( f(x) \) es:
+\[
+F(x) = \int (e^{-2x} + 3x^2) \, dx = -\frac{1}{2}e^{-2x} + x^3 + C
+\]
+
+\noindent Usando la condición inicial \( F(0) = 0 \):
+\[
+C = \frac{1}{2}
+\]
+
+\noindent La antiderivada es:
+\[
+F(x) = -\frac{1}{2}e^{-2x} + x^3 + \frac{1}{2}
+\]
+
+\subsection*{Conclusión:}
+
+La antiderivada de \( f(x) = e^{-2x} + 3x^2 \) es \( F(x) = -\frac{1}{2}e^{-2x} + x^3 + \frac{1}{2} \).
+
 
 \end{document}
