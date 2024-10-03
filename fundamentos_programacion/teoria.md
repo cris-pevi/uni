@@ -366,7 +366,74 @@ int main() {
 }
 ```
 
-- **Funciones para Llenar e imprimir un vector**
+- **Declarar 3 vectores e imprimirlos mediante funciones**
 ```cpp
- 
+#include <iostream>
+using namespace std;
+
+void llenar_funcion(int array[], int a, int b) {
+    cout << "Llenar el vector " << b << " :";
+    for (int i = 0; i < a; i++) {
+        cin >> array[i];
+    }
+}
+
+void sumar_vectores(int array[], int vector[], int arreglo[], int a) {
+    for (int i = 0; i < a; i++) {
+        arreglo[i] = array[i] + vector[i];
+    }
+}
+
+void print_vector(int array[], int n, int m) {
+    cout << "Imprimir vector " << m << " :\t";
+    for (int i = 0; i < n; i++) {
+        cout << array[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    int vector_1[n], vector_2[n], vector_3[n];
+
+    llenar_funcion(vector_1, n, 1);
+    llenar_funcion(vector_2, n, 2);
+
+    sumar_vectores(vector_1, vector_2, vector_3, n);
+
+    cout << "Imprimiendo ...\n";
+    print_vector(vector_1, n, 1);
+    print_vector(vector_2, n, 2);
+    print_vector(vector_3, n, 3);
+
+    return 0;
+}
+```
+
+- **Declarar filas y columnas en una matriz**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    char matriz[n][m];
+
+    cout << "Llenando ...\n";
+    for (int i = 0; i < n; i++) {
+        cin >> matriz[i];
+    }
+    
+    cout << "Imprimiendo...\n";
+    for (int i = 0; i < n; i++) {
+        cout << matriz[i] << " " ;
+    }
+    cout << "\n";
+
+    return 0;
+}
 ```
