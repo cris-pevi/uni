@@ -158,3 +158,215 @@ numeros.clear(); // Elimina todos los elementos
 int primero = numeros.front(); // Primer elemento
 int ultimo = numeros.back(); // Último elemento
 ```
+
+## Vectores y matrices
+
+- **Declararación de un array índice por índice y luego imprimirlo**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int array[3];
+
+    array[0] = 7;
+    array[1] = 5,
+    array[2] = 4;
+
+    for (int i = 0; i < 3; i++) {
+        cout << array[i] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Declaración de un array en una sola línea**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int array[4] = {2, 4, 6, 7};
+
+    for (int i = 0; i < 4; i++) {
+        cout << array[i] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Declaración de un array de tipo char**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(){
+    char palabras[3][20] = {"Hola", "soy", "Cristhyan"};
+
+    for (int i = 0; i < 3; i++){
+        cout << palabras[i] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Ingresar valores de array por consola**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    //Declaramos un array de 4 valores
+    int array[4];
+
+    //Ingresamos valores por consola
+    for (int i = 0; i < 4; i++) {
+        cin >> array[i];
+    }
+
+    //Imprimimos los valores
+    for (int j = 0; j < 4; j++) {
+        cout << array[j] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Ingresar valores de tipo `char` a un array por consola**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    char palabras[3][20];
+
+    for (int i = 0; i < 3; i++) {
+        cin >> palabras[i];
+    }
+
+    for (int j = 0; j < 3; j++) {
+        cout << palabras[j] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Ingresar valores `int` a un array por consola indicado el len**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int vector[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> vector[i];
+    }
+
+    for (int j = 0; j < n; j++) {
+        cout << vector[j] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Ingresar valores `char` a un array por consola indicado el len**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    char palabras[n][20];
+
+    for (int i = 0; i < n; i++) {
+        cin >> palabras[i];
+    }
+
+    for (int j = 0; j < n; j++) {
+        cout << palabras[j] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Declarar un array con la libreria vector**
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> array(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> array[i];
+    }
+
+    for (int j = 0; j < n; j++) {
+        cout << array[j] << " ";
+    }
+
+    cout << "\n";
+    return 0;
+}
+```
+
+- **Funciones para Llenar e imprimir un vector**
+```cpp
+#include <iostream>
+using namespace std;
+
+void llenar_vector(int vector[], int n) {
+    for (int i = 0; i < n; i++) {
+        cin >> vector[i];
+    }
+}
+
+void imprimir_vector(int vector[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << vector[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int n;
+    cin >> n;
+
+    int array[n];
+
+    llenar_vector(array, n);
+    imprimir_vector(array, n);
+
+    return 0;
+}
+```
+
+- **Funciones para Llenar e imprimir un vector**
+```cpp
+ 
+```
